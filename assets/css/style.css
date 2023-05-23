@@ -1,0 +1,598 @@
+.rpgui-content {
+  background-color: 
+  #4c4c4c;
+}
+
+
+
+/*dialogue section*/
+#dialogue button {
+  margin: 0 auto; 
+  letter-spacing: .05em;
+
+}
+
+@keyframes grow {
+  0% { max-height: var(--lineHeight); }
+  100% { max-height: calc(var(--lineHeight) * var(--lines)); }
+}
+
+.typewriter {
+  animation: grow var(--time) steps(var(--lines));
+  animation-fill-mode: forwards;
+}
+
+p.typewriter {
+  width: 100%;
+  background: transparent;
+}
+
+
+@keyframes carriageReturn {
+  0% { top: 0; }
+  100% { top: calc(var(--lineHeight) * var(--lines)); }
+}
+
+@keyframes type {
+  0% { width: 100%; }
+  100% { width: 0%; }
+}
+
+@keyframes caret {
+  0% { color: #4e4a4e; }
+  100% { color: black; }
+}
+
+.keyframes::before {
+  /* ... */
+  animation: 
+    type var(--timePerLine) linear infinite, 
+    carriageReturn var(--time) steps(var(--lines)) var(--lines),
+    caret 0.5s steps(2) infinite;
+}
+
+.typewriter {
+  --bgColor: white;
+  --lines: 500;
+  --lineHeight: 1.5rem;
+  --timePerLine: 4s;
+  --widthCh: 22;
+  --width: calc(var(--widthCh) * 1ch);
+  --time: calc(var(--lines) * var(--timePerLine));
+  animation: grow var(--time) steps(var(--lines));
+  animation-fill-mode: forwards;
+  background: #4e4a4e;  
+  line-height: var(--lineHeight);
+  max-height: var(--lineHeight);
+  overflow: hidden;
+  position: relative;
+  width: var(--width);
+}
+
+.typewriter::before {
+  content: "";
+  animation: 
+    type var(--timePerLine) linear infinite, 
+    carriageReturn var(--time) steps(var(--lines)) var(--lines),
+    caret 0.5s steps(2) infinite;
+  background: #4e4a4e;
+  border-left: 2px solid;
+  bottom: 0;
+  height: 2rem;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+.rpgui-content {
+    display: flex;
+    justify-content: center;
+    height: 80vh; 
+    /* background-color: rgb(133,76,48); */
+
+  }
+  
+.rpgui-container {
+    width: 100%;
+    justify-content: center;
+}
+
+.framed-golden {
+  height: 50%;
+}
+
+#paper h1 {
+  background-color: transparent;
+}
+#startButton {
+    width: 50%;
+}
+
+.sidebar {
+  position: relative;
+  top: 800px;
+  /* left: 700px; */
+  
+}
+
+#paper h1 {
+  font-size: 20px;
+}
+
+#startGame{
+  display: flex;
+  flex-flow: row wrap;
+  max-height: min-content;
+  justify-content: center;
+  width: 95%;
+}
+
+.nameBox {
+  margin-bottom: 10px;
+}
+
+#initial-select, #healthmodal-sect, #monstermodal-sect {
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+#monstermodal-sect {
+  position: relative;
+  left: 50%;
+}
+
+#healthmodal-sect, #monstermodal-sect {
+  display: none;
+  z-index: 0;
+  flex-flow: row wrap;
+  justify-self: center;
+  max-width: fit-content;
+  color: lightgray;
+}
+
+#healthmodal-sect:hover,
+#healthmodal-sect:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#name-modal, #health-modal, #monster-modal, #spotify-modal{
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  left: 10;
+  top: 10;
+  padding-top: 20px;
+  max-width: 500px;
+  max-height: fit-content;
+}
+
+#monster-modal{
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+#health-modal {
+  color: white;
+  padding-left: 10px;
+}
+
+#closeBtn-name, #closeBtn-spotify, .closeBtn {
+  color: #000000;
+  max-width: fit-content;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.closeBtn {
+  position: sticky;
+  top: 0;
+}
+
+#closeBt-name:hover,
+#closeBtn-name:focus,
+#closeBtn-spotify:hover,
+#closeBtn-spotify:hover, 
+.closeBtn:hover,
+.closeBtn:focus {
+  color: rgb(170, 163, 163);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#music:hover, #music:focus{
+  color: #aaa;
+}
+
+#dialogue {
+  display: none;
+  flex-flow: column wrap;
+}
+
+.dialogueBox {
+  max-width: 1000px;
+  flex-flow: row wrap;
+}
+
+.dialogueBtn {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: fit-content;
+}
+
+.fightorrestBtn {
+  display: block;
+}
+
+
+
+#startButton:hover {
+  animation: tilt-n-move-shaking 0.25s infinite;
+}
+
+@keyframes tilt-n-move-shaking {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, 5px) rotate(5deg); }
+    50% { transform: translate(0, 0) rotate(0eg); }
+    75% { transform: translate(-5px, 5px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+
+  #deathscreen {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    min-height: fit-content;
+    padding: 30px;
+  }
+
+  #deathscreen h1, #winscreen h1 {
+    font-size: 25px;
+  }
+
+  #winscreen {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+  #deathmsg, #winmsg {
+    display: flex;
+    max-width: fit-content;
+    font-size: 15px;
+  }
+
+  #deathbg{
+    display: flex;
+  }
+
+
+/* General page styling */
+html {
+	height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	/* background: black; */
+}
+
+/* media queries */
+/* large displays */
+@media screen and (min-width: 1900px) {
+ .framed-golden {
+    height: fit-content;
+ }
+
+  #paper h1 {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+
+  #startGame{
+    position: relative;
+    left: 40px;
+    margin-bottom: 50px;
+  }
+
+  #startButton {
+    font-size: 22px;
+  }
+
+  #music, .dialogueBtn, #closeBtn-name, .closeBtn, #closeBtn-spotify {
+    font-size: 16px;
+  }
+
+  #healthmodal-sect, #monstermodal-sect, .combatBox {
+    font-size: 20px;
+  }
+
+  #monstermodal-sect {
+    left: 78%;
+  }
+
+  #name-modal,
+  #health-modal,
+  #monster-modal,
+  #spotify-modal,
+  #initial-select,
+  .nameBox,
+  #dialogue,
+  #winmsg, 
+  .statFinal {
+    font-size: 18px;
+  }
+
+  #spotify-modal, #name-modal {
+    padding: 30px;
+    min-width: fit-content;
+  }
+
+  .buttonContainer {
+    position: relative;
+    right: 30px;
+  }
+
+  .combatBox {
+    position: relative;
+    left: 80px;
+  }
+
+  .combatBox p {
+    color: lightgrey;
+  }
+
+}
+
+/* med displays */
+@media screen and (max-width: 1500px) {
+  .framed-golden {
+    height: fit-content;
+ }
+
+  #paper h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  #startGame{
+    position: relative;
+    left: 30px;
+    margin-bottom: 30px;
+  }
+
+  #startButton {
+    font-size: 18px;
+  }
+
+  #music, .dialogueBtn, #closeBtn-name, .closeBtn, #closeBtn-spotify {
+    font-size: 14px;
+  }
+
+  #healthmodal-sect, #monstermodal-sect, .combatBox {
+    font-size: 16px;
+  }
+
+  #monstermodal-sect {
+    left: 73%;
+  }
+
+  #name-modal,
+  #health-modal,
+  #monster-modal,
+  #spotify-modal,
+  #initial-select,
+  .nameBox,
+  #dialogue,
+  #winmsg, 
+  .statFinal {
+    font-size: 15px;
+  }
+
+  #health-modal {
+    padding-bottom: 40px;
+    min-width: fit-content;
+  }
+
+ #health-modal button {
+    position: relative;
+    top: 10px;
+  }
+
+  #spotify-modal, #name-modal {
+    padding: 30px;
+    min-width: fit-content;
+  }
+
+  .healthbar-style {
+    margin: 30px;
+  }
+
+  .buttonContainer {
+    position: relative;
+    right: 30px;
+  }
+
+  .combatBox {
+    position: relative;
+    left: 50px;
+  }
+
+  #winscreen h1 {
+    font-size: 20px;
+  }
+}
+
+/* tablets */
+@media screen and (max-width: 1100px) {
+  .framed-golden {
+    height: fit-content;
+ }
+
+  #paper h1 {
+    font-size: 18px;
+    margin: 20px;
+  }
+
+  #startGame{
+    position: relative;
+    left: 15px;
+    margin-bottom: 20px;
+  }
+
+  #startButton {
+    font-size: 16px;
+  }
+
+  #music, .dialogueBtn, #closeBtn-name, .closeBtn, #closeBtn-spotify {
+    font-size: 12px;
+  }
+
+  #healthmodal-sect, #monstermodal-sect, .combatBox {
+    font-size: 14px;
+  }
+
+  #monstermodal-sect {
+    left: 58%;
+  }
+
+  #name-modal,
+  #health-modal,
+  #monster-modal,
+  #spotify-modal,
+  #initial-select,
+  .nameBox,
+  #dialogue,
+  #winmsg, 
+  .statFinal {
+    font-size: 13px;
+  }
+
+  #health-modal {
+    padding-bottom: 30px;
+    min-width: fit-content;
+  }
+
+ #health-modal button {
+    position: relative;
+    top: 5px;
+  }
+
+  #spotify-modal, #name-modal {
+    padding: 20px;
+    max-width: 600px;
+  }
+
+  .healthbar-style {
+    margin: 30px;
+  }
+
+  .combatBox {
+    position: relative;
+    left: 30px;
+  }
+
+  .atkBox,
+  .runBox {
+    font-size: 12px;
+  }
+  
+  .atkBox {
+    padding-left: 0;
+    margin-left: 10px;
+  }
+
+  #winscreen h1 {
+    font-size: 18px;
+  }
+}
+
+/* smartphones */
+@media screen and (max-width: 450px) {
+  .framed-golden {
+    min-height: 65%;
+ }
+
+  #paper h1 {
+    font-size: 16px;
+    margin: 15px;
+  }
+
+  #startGame{
+    position: relative;
+    left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  #startButton {
+    font-size: 14px;
+  }
+
+  #music, .dialogueBtn, #closeBtn-name, .closeBtn, #closeBtn-spotify {
+    font-size: 10px;
+  }
+
+  #healthmodal-sect, #monstermodal-sect, .combatBox {
+    font-size: 12px;
+  }
+
+  #monstermodal-sect {
+    top: 80px;
+    left: 0px;
+  }
+
+  #name-modal,
+  #health-modal,
+  #monster-modal,
+  #spotify-modal,
+  #initial-select,
+  .nameBox,
+  #dialogue,
+  #winmsg, 
+  .statFinal {
+    font-size: 11px;
+  }
+
+  #health-modal {
+    padding-bottom: 20px;
+    min-width: fit-content;
+  }
+
+ #health-modal button {
+    position: relative;
+    top: 3px;
+  }
+
+  #spotify-modal, #name-modal {
+    padding: 20px;
+    max-width: 300px;
+  }
+
+  .healthbar-style {
+    margin: 20px;
+  }
+
+  .combatBox {
+    position: relative;
+    left: 30px;
+  }
+
+  .atkBox,
+  .runBox {
+    font-size: 10px;
+    position: relative;
+    left: 40px;
+  }
+  
+  .atkBox {
+    padding-left: 5px;
+    margin-left: 10px;
+  }
+
+  #winscreen h1 {
+    font-size: 16px;
+  }
+
+}
